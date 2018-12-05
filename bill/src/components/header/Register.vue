@@ -1,7 +1,7 @@
 <template>
   <div id="Register">
     <el-form :model="json" ref="form" :rules="rules">
-      <el-form-item prop="name">
+      <el-form-item prop="tel">
         <el-input v-model="json.tel" class="form-control" placeholder="请输入电话号码"></el-input>
       </el-form-item>
 
@@ -26,7 +26,7 @@
     data() {
       return {
         rules: {
-          tel: [{required: true, message: '请输入用户名', trigger: 'blur'}],
+          tel: [{required: true, message: '请输入电话号码', trigger: 'blur'}],
           level: [{required: true, message: '请输入验证码', trigger: 'blur'}],
           password: [{required: true, message: '请输入密码', trigger: 'blur'}],
         },
@@ -39,7 +39,7 @@
     },
     methods: {
         getting() {
-              this.$axios.post('http://localhost:8080/login',
+              this.$axios.post('http://localhost:8081/login',
                 this.json
                 )
                 .then(res => {
@@ -55,7 +55,7 @@
                 });
             },
       regi(){
-        this.$axios.post('http://localhost:8080/register',
+        this.$axios.post('http://localhost:8081/register',
           this.json
         )
           .then(res=>{

@@ -7,6 +7,8 @@ import test.two.spring.mapper.RegisterMapper;
 import test.two.spring.util.ErrorCode;
 import test.two.spring.util.GetMessage;
 
+import static test.two.spring.util.GetMessage.getResult;
+
 @Service
 public class RegisterService {
 
@@ -17,16 +19,16 @@ public class RegisterService {
     }
 
     public String reg1(String tel){
-        //String telephone=registerMapper.SelectTel(tel);
          String telephone=registerMapper.SelectTel(tel);
         if(telephone!=null){
             return ErrorCode.WRONG_NAME;
         }else {
+            //getResult(tel);
             return ErrorCode.SUCCESS;
         }
     }
     public String reg2(String code,String tel) {
-        //GetMessage getMessage=new GetMessage();
+       // GetMessage getMessage=new GetMessage();
         String x="344826";
         if(code.equals(x)){
            registerMapper.addUserinfo(tel);
@@ -36,7 +38,7 @@ public class RegisterService {
             }*/
             return ErrorCode.SUCCESS;
         }else {
-            System.out.println("yyyyy");
+            //System.out.println("yyyyy");
             return ErrorCode.WRONG_NAME;
         }
         //return x;
