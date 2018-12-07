@@ -1,8 +1,8 @@
 <template>
   <el-container id="HomePage" >
     <div class="change">
-      <div>
-        <el-button type="text" @click="changeView('登录')">登录</el-button>
+      <div class="lr">
+        <el-button type="text" @click="changeView('登录')" >登录</el-button>
         <el-button type="text" @click="changeView('注册')">注册</el-button>
       </div>
       <Login v-if="showLogin"></Login>
@@ -21,7 +21,7 @@
     data() {
       return {
         showLogin: true,
-        showRegister: false
+        showRegister: false,
       }
     },
     methods: {
@@ -33,37 +33,53 @@
           this.showLogin = false
           this.showRegister = true
         }
-      }
+      },
+
+
+
     }
   }
 </script>
 
 <style scoped>
   #HomePage {
-    /*position: fixed;*/
+    position: fixed;
     top: 10px;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #f1f1f1;
+    height: 600px;
+    /*background-color: #81f128;*/
+    background: url("../../assets/bgc1.jpg") no-repeat 0px -40px;
+    background-size: 100%;
   }
 
   .change {
-    background-color: white;
+    opacity: 0.9;
+    margin-top: 70px;
+    background-color: transparent;
     -webkit-border-radius: 24px;
     -moz-border-radius: 24px;
-    border-radius: 24px;
-    margin: auto;
+    border-radius: 26px;
+    border:1px solid #e4e4e4;
+    margin-left: 650px;
     text-align: center;
-    width: 300px;
-    height: 400px;
+    width: 260px;
+    height: 280px;
   }
 
   #Login {
-    margin: 60px 30px 30px 30px;
+    font-size: 12px;
+    margin: 60px 50px 40px 42px;
+    background-color: transparent;
   }
 
   #Register {
-    margin: 30px 30px 30px 30px;
+    margin: 5px 30px 30px 30px;
+    background-color: transparent;
+  }
+  .lr{
+    margin-top:5px;
+    font-size: 10px;
   }
 </style>

@@ -2,11 +2,11 @@
   <div id="Login" >
     <el-form :model="loginForm" ref="loginForm" :rules="rules">
       <el-form-item prop="name">
-        <el-input v-model="loginForm.name" placeholder="用户名">
+        <el-input v-model="loginForm.name" placeholder="请输入账号">
         </el-input>
       </el-form-item>
       <el-form-item prop="password">
-        <el-input v-model="loginForm.password" type="password" placeholder="密码">
+        <el-input v-model="loginForm.password" type="password" placeholder="请输入密码">
         </el-input>
       </el-form-item>
       <el-form-item>
@@ -69,7 +69,7 @@
       },
       commit(){
         bus.$emit('sendMsg',{
-         vinish:false,
+          vinish:false,
           vinish1:true
         })
       }
@@ -78,5 +78,9 @@
 </script>
 
 <style scoped>
-
+  #Login{
+    margin-top: 18px;
+    opacity: 0.9;
+    background-color: transparent;
+  }
 </style>

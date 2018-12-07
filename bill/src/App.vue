@@ -24,7 +24,7 @@
           <div style="width: 150px;height: 30px;position: absolute;margin:-45px 700px"  v-if="vinish">
             <router-link to="/HomePage"> <div style="width: 50px;height: 25px;border: #2b85e4 solid 1px;float: left;
             color: white;text-align: center;background-color:#3d93be;padding-top: 2px">登录</div></router-link>
-            <router-link to="/HomePage1"><div  style="width: 50px;height: 25px;border: #2b85e4 solid 1px;float: left;
+            <router-link to="/HomePage"><div  style="width: 50px;height: 25px;border: #2b85e4 solid 1px;float: left;
             color: white;text-align: center;margin-left: 15px;background-color:#c10000;padding-top: 2px">注册</div></router-link>
           </div>
         </div>

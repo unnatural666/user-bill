@@ -2,19 +2,23 @@
   <div id="Register">
     <el-form :model="json" ref="form" :rules="rules">
       <el-form-item prop="tel">
-        <el-input v-model="json.tel" placeholder="请输入电话号码"></el-input>
+        <el-input v-model="json.tel" class="form-control" placeholder="请输入电话号码"></el-input>
       </el-form-item>
 
       <el-form-item prop="level">
-          <el-input v-model="json.level" placeholder="请输入验证码">
-            <el-button type="success" slot="append" @click="getting()">获取验证码</el-button>
+        <el-input v-model="json.level" class="form-control" placeholder="请输入验证码" >
+          <el-button type="primary" slot="append" @click="getting()" style="width: 60px;font-size: 11px;text-align: -moz-center;position: relative">
+            <span style="position: absolute;margin-left: -28px;margin-top: -11px;color:blueviolet">获取验证码</span></el-button>
+
+
+
         </el-input>
       </el-form-item>
       <el-form-item prop="password">
-        <el-input type="password" v-model="json.password" placeholder="密码"></el-input>
+        <el-input type="password" v-model="json.password" class="form-control" placeholder="密码"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="regi()">注册</el-button>
+        <el-button type="primary" round @click="regi()">注册</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -38,22 +42,22 @@
       }
     },
     methods: {
-        getting() {
-              this.$axios.post('http://localhost:8081/login',
-                this.json
-                )
-                .then(res => {
-                  if (res.data == '002') {
-                    this.$message({message: '该用户已被注册', type: 'warn'});
-                  }
-                  if (res.data == '000') {
-                    this.$message({message: '验证码已发送，请注意查收', type: 'success'});
-                  }
-                })
-                .catch(error => {
-                  console.log(error);
-                });
-            },
+      getting() {
+        this.$axios.post('http://localhost:8081/gettel',
+          this.json
+        )
+          .then(res => {
+            if (res.data == '002') {
+              this.$message({message: '该用户已被注册', type: 'warn'});
+            }
+            if (res.data == '000') {
+              this.$message({message: '验证码已发送，请注意查收', type: 'success'});
+            }
+          })
+          .catch(error => {
+            console.log(error);
+          });
+      },
       regi(){
         this.$axios.post('http://localhost:8081/register',
           this.json
@@ -72,28 +76,28 @@
           });
       }
     }
-     /* register(formName) {
-        this.$refs[formName].validate((valid) => {
-          if (valid) {
-            this.$axios.post(
-              '/user/register',
-              this.registerForm
-            )
-              .then(res => {
-                if (res.data === 's0000') {
-                  this.$message({message: '注册成功', type: 'success'});
-                  this.$router.push({name: 'basic'})
-                } else if (res.data === 'e1002') {
-                  this.$message({message: '该用户已被注册', type: 'warn'});
-                }
-                this.$refs['registerForm'].resetFields();
-              })
-              .catch(error => {
+    /* register(formName) {
+       this.$refs[formName].validate((valid) => {
+         if (valid) {
+           this.$axios.post(
+             '/user/register',
+             this.registerForm
+           )
+             .then(res => {
+               if (res.data === 's0000') {
+                 this.$message({message: '注册成功', type: 'success'});
+                 this.$router.push({name: 'basic'})
+               } else if (res.data === 'e1002') {
+                 this.$message({message: '该用户已被注册', type: 'warn'});
+               }
+               this.$refs['registerForm'].resetFields();
+             })
+             .catch(error => {
 
-              })
-          }
-        })
-      }*/
+             })
+         }
+       })
+     }*/
   }
 </script>
 
