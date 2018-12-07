@@ -2,16 +2,16 @@
   <div id="Register">
     <el-form :model="json" ref="form" :rules="rules">
       <el-form-item prop="tel">
-        <el-input v-model="json.tel" class="form-control" placeholder="请输入电话号码"></el-input>
+        <el-input v-model="json.tel" placeholder="请输入电话号码"></el-input>
       </el-form-item>
 
       <el-form-item prop="level">
-          <el-input v-model="json.level" class="form-control" placeholder="请输入验证码">
+          <el-input v-model="json.level" placeholder="请输入验证码">
             <el-button type="success" slot="append" @click="getting()">获取验证码</el-button>
         </el-input>
       </el-form-item>
       <el-form-item prop="password">
-        <el-input type="password" v-model="json.password" class="form-control" placeholder="密码"></el-input>
+        <el-input type="password" v-model="json.password" placeholder="密码"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="regi()">注册</el-button>

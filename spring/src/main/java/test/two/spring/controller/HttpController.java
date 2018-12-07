@@ -39,14 +39,16 @@ public class HttpController {
         JSONObject jsonObject = JSON.parseObject(code);
         String coding= (String) jsonObject.get("level");
         String telephone= (String) jsonObject.get("tel");
+        String password= (String) jsonObject.get("password");
         //GetMessage getMessage=new GetMessage();
-       /* System.out.println(coding);
-        System.out.println(telephone);*/
+        System.out.println(coding);
+        System.out.println(telephone);
+        System.out.println(password);
         //System.out.println(getMessage.randNum);
-       return registerService.reg2(coding,telephone);
+       return registerService.reg2(coding,telephone,password);
 
        // System.out.println(coding);
-       // return null;
+        //return null;
     }
 
 }

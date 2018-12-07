@@ -27,11 +27,11 @@ public class RegisterService {
             return ErrorCode.SUCCESS;
         }
     }
-    public String reg2(String code,String tel) {
+    public String reg2(String code,String tel,String pass) {
        // GetMessage getMessage=new GetMessage();
         String x="344826";
         if(code.equals(x)){
-           registerMapper.addUserinfo(tel);
+           registerMapper.addUserinfo(tel,pass);
             /*if(num!=0){
                 System.out.println("xxxx");
 
