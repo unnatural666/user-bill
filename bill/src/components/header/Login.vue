@@ -39,20 +39,19 @@
       login(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            this.$axios.post(
-              '/login',
+            this.$axios.post('http://localhost:8081/login',
               this.loginForm
             )
               .then(res => {
-                if (res.data === 's0000') {
+                if (res.data === '000') {
                   this.$message({message: '登陆成功', type: 'success'})
                   sessionStorage.setItem('user', JSON.stringify(this.loginForm))
                   this.$router.push({name: 'home'})
                   this.commit()
 
-                } else if (res.data === 'e1001') {
+                } else if (res.data === '001') {
                   this.$alert('密码错误')
-                } else if (res.data === 'e1002') {
+                } else if (res.data === '002') {
                   this.$alert('账号不存在')
                 }
               })
