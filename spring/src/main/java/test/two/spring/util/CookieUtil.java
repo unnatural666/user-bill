@@ -6,11 +6,11 @@ import javax.servlet.http.HttpServletResponse;
 
 public class CookieUtil {
 
-    public static String getCookie(HttpServletRequest request,String username){
+    public static String getCookie(HttpServletRequest request,String tel){
         Cookie[] cookies=request.getCookies();
         if (cookies!=null){
           for (Cookie cookie:cookies){
-              if (username.equals(cookie.getName())){
+              if (tel.equals(cookie.getName())){
                   return cookie.getValue();
               }
           }
@@ -18,14 +18,14 @@ public class CookieUtil {
         return null;
     }
 
-    public static void addCookie(HttpServletResponse response, String username, String value, int maxAge){
-        Cookie cookie=new Cookie(username,value);
+    public static void addCookie(HttpServletResponse response, String tel, String value, int maxAge){
+        Cookie cookie=new Cookie(tel,value);
         cookie.setPath("/");
         cookie.setMaxAge(maxAge);
         response.addCookie(cookie);
     }
 
-    public static void removeCokkie(HttpServletResponse response,String username){
-        addCookie(response,username,null,0);
+    public static void removeCookie(HttpServletResponse response,String tel){
+        addCookie(response,tel,null,0);
     }
 }

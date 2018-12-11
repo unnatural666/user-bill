@@ -18,7 +18,7 @@ public class RegisterController {
         this.registerService=registerService;
     }
 
-    @PostMapping(value = "/login",produces = "application/json",consumes = "application/json")
+    @PostMapping(value = "/gettel",produces = "application/json",consumes = "application/json")
 
     public String getMsg(@RequestBody String tel) {
         JSONObject jsonObject = JSON.parseObject(tel);

@@ -1,8 +1,8 @@
 <template>
   <div id="Login" >
     <el-form :model="loginForm" ref="loginForm" :rules="rules">
-      <el-form-item prop="name">
-        <el-input v-model="loginForm.name" placeholder="请输入账号">
+      <el-form-item prop="tel">
+        <el-input v-model="loginForm.tel" placeholder="请输入电话号">
         </el-input>
       </el-form-item>
       <el-form-item prop="password">
@@ -24,12 +24,11 @@
     data() {
       return {
         loginForm: {
-          name: '',
+          tel: '',
           password: '',
-
         },
         rules: {
-          name: [{required: true, message: '请输入账号', trigger: 'blur'}],
+          tel: [{required: true, message: '请输入账号', trigger: 'blur'}],
           password: [{required: true, message: '请输入密码', trigger: 'blur'}]
         },
         props: ['jump']
