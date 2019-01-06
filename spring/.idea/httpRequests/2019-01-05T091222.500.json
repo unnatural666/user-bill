@@ -1,1 +1,0 @@
-{"code":70001,"msg":"服务器错误","data":{"errdetail":"Required request body is missing: public test.two.spring.result.Result test.two.spring.controller.RegisterController.register(test.two.spring.bean.userInfo)"}}
