@@ -1,0 +1,13 @@
+{
+  "id": 1,
+  "account": "123",
+  "eename": "hjk",
+  "lgname": "12",
+  "password": "12",
+  "email": "12",
+  "address": "1",
+  "idcard": "1",
+  "auth": null,
+  "salt": "1",
+  "admin": false
+}
