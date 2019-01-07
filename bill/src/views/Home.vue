@@ -174,9 +174,10 @@
     padding: 0px 0px;
   }
   .el-carousel,.el-carousel__container{
-    height: 340px;
+    height: 380px;
   }
-  .el-table,.el-table--fit,.el-table--scrollable-x,.el-table--enable-row-transition{
-    height: 600px;
+  .el-table{
+    width: 100%;
+    height: 320px;
   }
 </style>

@@ -100,7 +100,7 @@ text-align: center">
            this.form,
          )
            .then(res => {
-             this.$message({message: '恭喜你完善信息成功', type: 'success'})
+             this.$message({message: '恭喜你修改信息成功', type: 'success'})
              this.$router.push({path:'/'})
 
            })
@@ -118,5 +118,58 @@ text-align: center">
 .head{
   background: url("/static/user/head.jpeg");
   background-size: 100%;
+}
+
+#complete{
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.me-video-player{
+  background-color: transparent;
+  width:100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+  position: absolute;
+  left:0;
+  z-index: 0;
+  top: 0;
+}
+.me-login-box{
+  position: absolute;
+  width: 300px;
+  height: 420px;
+  background-color: #ffffff;
+  margin-top: -10px;
+  margin-left: -180px;
+  left:35%;
+  padding: 30px;
+}
+.me-login-box-radius{
+  border-radius: 10px;
+  box-shadow: 0px 0px 1px 1px rgba(129, 241, 40, 0.1);
+}
+
+.me-login-box h1{
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  vertical-align: middle;
+}
+
+.me-login-design{
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+}
+.me-login-design-color{
+  color: #81f128 !important;
+}
+.me-login-button{
+  text-align: center;
+}
+.me-login-button button{
+  width: 100%;
 }
 </style>
