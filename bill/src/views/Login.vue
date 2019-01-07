@@ -61,6 +61,8 @@ export default {
 				that.$store.dispatch('login', that.userForm).then(response=> {
 					that.$router.go(-1)
 
+          that.$message({message: '登录成功 ',type: 'success',showClose: true});
+
 				}).catch((error) => {
 					if(error !== 'error'){
 						that.$message({message: error,type: 'error',showClose: true});

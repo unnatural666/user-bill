@@ -42,13 +42,11 @@
 </template>
 
 <script>
-  // import store from '../store/index'
   export default {
     name: 'Complete',
     data () {
       return {
         userForm:{
-          account:'',
           eename: '',
           email:'',
           address: '',
@@ -81,6 +79,22 @@
     },
     methods:{
     complete() {
+      let that=this
+      let index=0
+      event.preventDefault();
+      Object.keys(that.userForm).forEach(function(key){
+
+        console.log(key,that.userForm[key]);
+
+        if(that.userForm[key]==''){
+          index+=1
+          return ;
+        }
+
+      });
+      if(index!=0){
+        return this.$message({message: '请完善所有信息 ',type: 'error',showClose: true});
+      }
             this.axios.post(
               'http://localhost:8081/addinfo',
                 this.userForm,
@@ -101,9 +115,6 @@
 </script>
 
 <style scoped>
-  /*.beijing{*/
-    /*background: url("../assets/img/timg.jpg");*/
-  /*}*/
   #complete{
     min-width: 100%;
     min-height: 100%;

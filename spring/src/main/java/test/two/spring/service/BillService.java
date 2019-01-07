@@ -33,7 +33,7 @@ public class BillService {
 
             // 接着创建对应的实体类，将以下路径进行添加，然后通过数据库操作方法写入
             billInfo biaopath = new billInfo();
-            biaopath.setPath("http://localhost:8100/"+fileName);
+            biaopath.setPath("http://localhost:8081/"+fileName);
             String imagepath=biaopath.getPath();
             billMapper.addPath(imagepath,bill.getBillname(),bill.getEename(),bill.getEndorse(),bill.getFlaw(),bill.getBilltime(),bill.getMoney(),bill.getWant());
         }

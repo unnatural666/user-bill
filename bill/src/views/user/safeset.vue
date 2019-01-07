@@ -68,13 +68,6 @@ text-align: center">
            address:'',
            lgname:'',
            idcard:'',
-
-           date1: '',
-           date2: '',
-           delivery: false,
-           type: [],
-           resource: '',
-           desc: ''
          },
          formLabelWidth: '120px'
        }
@@ -95,6 +88,22 @@ text-align: center">
           },
         methods:{
        repair(){
+         let that=this
+         let index=0
+         event.preventDefault();
+         Object.keys(that.form).forEach(function(key){
+
+           console.log(key,that.form[key]);
+
+           if(that.form[key]==''){
+             index+=1
+             return ;
+           }
+
+         });
+         if(index!=0){
+           return this.$message({message: '请完善修改信息 ',type: 'error',showClose: true});
+         }
          this.axios.post(
            'http://localhost:8081/update',
            this.form,

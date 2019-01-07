@@ -7,58 +7,9 @@
 		</el-col>
 		<el-col :span="4" :offset="6">
 			<div class="me-write-btn">
-			<!--<el-button round @click="publishShow">保存</el-button>-->
-			<!--<el-button round @click="cancel">取消</el-button>-->
 			</div>
 		</el-col>
   	</base-header>
-
-	<!--<el-container class="me-area me-write-box">-->
-		<!--<el-main class="me-write-main">-->
-			<!--<div class="me-write-title">-->
-				<!--<el-input resize="none"-->
-					  <!--type="textarea"-->
-					  <!--autosize-->
-					  <!--v-model="articleForm.title"-->
-					  <!--placeholder="请输入标题"-->
-					  <!--class="me-write-input">-->
-					<!--</el-input>-->
-
-			<!--</div>-->
-			<!--<markdown-editor :editor="articleForm.editor" class="me-write-editor"></markdown-editor>-->
-		<!--</el-main>-->
-	<!--</el-container>-->
-
-	<!--<el-dialog title="摘要 分类 标签"-->
-		<!--:visible.sync="publishVisible"-->
-		<!--:close-on-click-modal=false-->
-		<!--custom-class="me-dialog">-->
-
-	  <!--<el-form :model="articleForm" ref="articleForm" :rules="rules">-->
-	    <!--<el-form-item prop="summary">-->
-	    	<!--<el-input type="textarea"-->
-	    		  <!--v-model="articleForm.summary"-->
-				  <!--:rows="6"-->
-				  <!--placeholder="请输入摘要">-->
-			<!--</el-input>-->
-	    <!--</el-form-item>-->
-	    <!--<el-form-item label="文章分类" prop="category">-->
-	      	<!--<el-select v-model="articleForm.category" value-key="id" placeholder="请选择文章分类">-->
-	        	<!--<el-option v-for="c in categorys" :key="c.id" :label="c.categoryname" :value="c"></el-option>-->
-	      	<!--</el-select>-->
-	    <!--</el-form-item>-->
-
-	    <!--<el-form-item label="文章标签" prop="tags">-->
-		    <!--<el-checkbox-group v-model="articleForm.tags">-->
-		      <!--<el-checkbox v-for="t in tags" :key="t.id" :label="t.id" name="tags">{{t.tagname}}</el-checkbox>-->
-		    <!--</el-checkbox-group>-->
-		<!--</el-form-item>-->
-	  <!--</el-form>-->
-	  <!--<div slot="footer" class="dialog-footer">-->
-	    	<!--<el-button @click="publishVisible = false">取 消</el-button>-->
-	    	<!--<el-button type="primary" @click="publish('articleForm')">发布</el-button>-->
-	  <!--</div>-->
-	<!--</el-dialog>-->
 
   <div class="page" style="width: 100%;height:650px;margin-top: 60px">
     <div class="left" style=" height:auto ;float: left;width: 400px">

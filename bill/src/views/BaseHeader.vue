@@ -79,6 +79,7 @@ export default {
   		let that = this
   		this.$store.dispatch('logout').then(() => {
 				this.$router.push({ path: '/' })
+        that.$message({message: '已退出 ',type: 'success',showClose: true});
 			}).catch((error) => {
 				if(error !== 'error'){
 					that.$message({message: error,type: 'error',showClose: true});
