@@ -21,10 +21,14 @@ public interface UserMapper {
     @Select("select * from userinfo where account=#{account}")
     String findUserByTel(@Param("account")String account);
 
-   /* @Select("select username from userinfo where account=#{account}")
-    userInfo findUserName(@Param("account") String account);*/
+    @Select("select id from userinfo where account=#{account}")
+    int findUserId(@Param("account") String account);
 
     @Update("update userinfo set eename=#{eename},lgname=#{lgname},email=#{email},address=#{address},idcard=#{idcard} where account=#{account}")
     int addInfo(@Param("eename") String eename,@Param("lgname") String lgname,@Param("email") String email,@Param("address") String address,@Param("idcard") String idcard,@Param("account") String account);
+
+    @Select("select eename from userinfo where id=#{id}")
+    String findEename(@Param("id") int id);
+
 
 }

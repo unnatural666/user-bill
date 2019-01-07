@@ -32,13 +32,12 @@ public class UserService {
         return user;
     }
 
-    /*public userInfo findName(String account){
-        userInfo user=userMapper.findUserName(account);
-        return user;
-    }*/
-
     public int addInfo(String eename,String lgname,String email,String address,String idcard,String account){
         int user=userMapper.addInfo(eename,lgname,email,address,idcard,account);
         return user;
+    }
+
+    public int findId(String account){
+        return userMapper.findUserId(account);
     }
 }
