@@ -8,17 +8,30 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import test.two.spring.bean.billInfo;
 import test.two.spring.service.BillService;
+import test.two.spring.util.ApiSelf;
+import test.two.spring.util.JsonUtil;
 
 @RestController
 public class BillController {
 
     @Autowired
     private BillService billService;
+
+    private ApiSelf apiSelf=new ApiSelf();
     // 传入的参数file是我们指定的文件
     @RequestMapping("/upload")
     @ResponseBody
-    public String upload(@RequestParam("file") MultipartFile file, billInfo bill) {
-        return billService.Upload(file,bill);
+    public String upload(@RequestParam("file") MultipartFile file) {
+        String filepath=billService.Upload(file);
+        JsonUtil jsonUtil=new JsonUtil();
+        String m=jsonUtil.json(String.valueOf(apiSelf.custom(filepath)));
+        System.out.println(m);
+        return String.valueOf(apiSelf.custom(filepath));
+    }
+
+    @RequestMapping("/upbill")
+    public int upbill(billInfo bill){
+        return billService.updateBill(bill);
     }
 
     @RequestMapping("/show")

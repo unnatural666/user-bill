@@ -15,7 +15,7 @@ import java.util.List;
 @RequestMapping(value="/users")
 public class CurrentUserController {
 
-    static String account;
+    public static String account;
 
     @Autowired
     private UserService userService;

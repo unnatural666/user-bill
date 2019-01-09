@@ -6,6 +6,7 @@ import org.springframework.util.ClassUtils;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import test.two.spring.bean.billInfo;
+import test.two.spring.controller.CurrentUserController;
 import test.two.spring.mapper.BillMapper;
 import test.two.spring.util.FileUtil;
 
@@ -16,7 +17,11 @@ public class BillService {
 
     @Autowired
     private BillMapper billMapper;
-    public String Upload(@RequestParam("file") MultipartFile file,billInfo bill) {
+    @Autowired
+    CurrentUserController currentUserController;
+    String billpath;
+
+    public String Upload(@RequestParam("file") MultipartFile file) {
         if(!file.isEmpty()) {
             // 获取文件名称,包含后缀
             String fileName = file.getOriginalFilename();
@@ -35,13 +40,20 @@ public class BillService {
             billInfo biaopath = new billInfo();
             biaopath.setPath("http://localhost:8081/"+fileName);
             String imagepath=biaopath.getPath();
-            billMapper.addPath(imagepath,bill.getBillname(),bill.getEename(),bill.getEndorse(),bill.getFlaw(),bill.getBilltime(),bill.getMoney(),bill.getWant());
+            billpath=imagepath;
+            billMapper.addPath(imagepath);
+            return path+fileName;
+        }else {
+            return "error";
         }
-        return "success";
+
     }
 
     public String show(){
         return null;
     }
 
+    public int updateBill(billInfo bill) {
+        return billMapper.updateBill(currentUserController.account,bill.getEename(),bill.getBillname(),bill.getMoney(),bill.getBilltime(),bill.getFlaw(),bill.getWant(),bill.getEndorse(),billpath);
+    }
 }

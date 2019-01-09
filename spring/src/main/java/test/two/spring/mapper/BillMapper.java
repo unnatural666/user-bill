@@ -1,18 +1,13 @@
 package test.two.spring.mapper;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-
-import java.util.Date;
+import org.apache.ibatis.annotations.*;
 
 @Mapper
 public interface BillMapper {
 
-    @Insert("insert into billinfo values(0,#{eename},#{billname},#{money},#{billtime},#{flaw},#{want},#{endorse},#{path})")
-    int addPath(@Param("path") String path, @Param("billname") String billname, @Param("eename") String eename, @Param("endorse") String endorse, @Param("flaw") String flaw, @Param("billtime") String billtime, @Param("money") String money, @Param("want") String want);
+    @Insert("insert into billinfo values(0,'','','','','','','',#{path})")
+    int addPath(@Param("path") String path);
 
-    @Select("select path from image where id=6")
-    String findPth();
+    @Update("update billinfo set account=#{account} eename=#{eename},billname=#{billname},money=#{money},billtime=#{billtime},flaw=#{flaw},want=#{want},endorse=#{endorse} where path=#{path}")
+    int updateBill(@Param("account") String account,@Param("eename") String eename,@Param("billname") String billname,@Param("money") String money,@Param("billtime") String billtime,@Param("flaw") String flaw,@Param("want") String want,@Param("endorse") String endorse,String path);
 }

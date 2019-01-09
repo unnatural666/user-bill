@@ -2,12 +2,11 @@ package test.two.spring.bean;
 
 import lombok.Data;
 
-import java.util.Date;
-
 @Data
 public class billInfo {
 
     private int id;
+    private String account;
     private String billname;
     private String eename;
     private String money;
@@ -23,6 +22,14 @@ public class billInfo {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
     }
 
     public String getBillname() {
