@@ -19,7 +19,7 @@ public enum  ResultCode {
     USER_ACCOUNT_FORBIDDEN(20003, "账号已被禁用"),
     USER_NOT_EXIST(20004, "用户不存在"),
     USER_HAS_EXISTED(20005, "用户已存在"),
-    USER_Register_ERROR(20006, "用户注册错误"),
+    USER_Register_ERROR(20006, "请填写正确的验证码"),
 
     /* 数据错误 */
     RESULE_DATA_NONE(30001, "数据未找到"),

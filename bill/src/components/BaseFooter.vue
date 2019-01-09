@@ -1,9 +1,9 @@
 <template>
 	<el-footer class="me-area">
 		<div class="me-footer">
-			<p>Designed by 
-			<strong><router-link to="/" class="me-login-design-color">ForFun</router-link></strong>
-			</p>
+      <div >
+        <span>Copyright © 2018河南省中原工学院科技有限公司 </span>
+      </div>
 		</div>
 	</el-footer>
   

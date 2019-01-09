@@ -64,6 +64,8 @@ const router = new Router({
         {path:'/',redirect:'/safeset',},
         {path: '/basic',component: r => require.ensure([], () => r(require('@/views/user/basic')), 'basic'),},
         {path: '/safeset',component: r => require.ensure([], () => r(require('@/views/user/safeset')), 'safeset'),},
+        {path: '/salled',component: r => require.ensure([], () => r(require('@/views/user/salled')), 'salled'),},
+        {path: '/bought',component: r => require.ensure([], () => r(require('@/views/user/bought')), 'bought'),},
       ],
 
     	meta: {

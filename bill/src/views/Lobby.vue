@@ -1,6 +1,6 @@
 <template>
 
-<div style="width: 100% ;height: auto;margin-top: 60px">
+<div style="width: 100% ;height: auto;margin:80px 120px">
   <div>
     <table style=" line-height: 35px;width: 900px; margin-left: -10px">
       <tr>
@@ -92,10 +92,10 @@
       </tr>
     </table>
   </div>
- <div style="height: 600px"> <el-table
+ <div style="height: 800px;width: 1500px; "> <el-table
    ref="filterTable"
    :data="tableData"
-   style="width: 100%">
+   style="width: 1000px">
    <el-table-column
      prop="date"
      label="发布时间"

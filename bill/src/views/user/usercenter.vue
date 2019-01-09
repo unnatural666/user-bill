@@ -23,8 +23,8 @@
               <i class="el-icon-location"></i>
               <span>我的订单</span>
             </template>
-            <el-menu-item index="1-1">我的卖出</el-menu-item>
-            <el-menu-item index="1-1">我的买入</el-menu-item>
+            <router-link to="/salled"><el-menu-item index="1-1">我的卖出</el-menu-item></router-link>
+            <router-link to="/bought"><el-menu-item index="1-1">我的买入</el-menu-item></router-link>
           </el-submenu>
           <el-submenu index="2">
             <template slot="title">

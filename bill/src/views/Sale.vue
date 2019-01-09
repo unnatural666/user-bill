@@ -1,5 +1,5 @@
 <template>
-  <div style="margin:80px auto;width: 90%;height: 730px;border: 1px solid #cecece">
+  <div style="margin:80px auto;margin-bottom: 20px;width: 90%;height: 700px;border: 1px solid #cecece">
 
     <div style="margin:40px 20px ">
       <div style="width: 10% ;float: left; "><h3>步骤流程</h3></div>
@@ -11,11 +11,28 @@
     </el-steps></div>
     </div>
     <br>
-    <div style="width: 100% ;float: left ;margin:30px 20px ">
+    <div style="width: 100% ;height: 200px;float: left ;margin:30px 20px ">
       <h3>上传票面</h3>
-      <img src="" alt="" id="portrait" style="width: 300px;height: 200px;background-color: #eeeeee"/>
-      <input type="file" id="saveImage" name="myphoto"  @change="getFile($event);" accept="image/png,image/gif,image/jpeg"
-             ref="new_company_image">
+
+      <div style="margin-left: 140px">
+        <el-upload
+          action="https://jsonplaceholder.typicode.com/posts/"
+          list-type="picture-card"
+          :on-preview="handlePictureCardPreview"
+          :on-remove="handleRemove"
+          :on-change="pic"
+          :before-upload="beforeUpload"
+
+        >
+
+          <i class="el-icon-plus"></i>
+        </el-upload>
+        <el-dialog :visible.sync="dialogVisible">
+          <img width="100%" :src="dialogImageUrl" alt="" height="200px"  >
+        </el-dialog>
+      </div>
+      <el-button type="success" round  @click="submit($event)" style="margin:5px 160px">检索票据</el-button>
+
     </div>
 
     <div style="clear: left;margin:25px 20px "> <h3>票面信息</h3></div>
@@ -51,7 +68,7 @@
               <el-input placeholder="请输入票据瑕疵" v-model="userForm.flaw" ></el-input>
             </el-form-item>
             <el-form-item size="small" class="me-login-button">
-              <el-button type="primary"   @click="submit($event)" >一键融资</el-button>
+              <el-button type="primary"   @click="invest($event)" >一键融资</el-button>
             </el-form-item>
           </el-form>
 
@@ -67,8 +84,11 @@
 
     data() {
       return {
-        file:'',
-          userForm:{
+        dialogImageUrl: '',
+        dialogVisible: false,
+          file:'',
+          back:'',
+        userForm:{
           billname: '',
           eename: '',
           money: '',
@@ -77,6 +97,9 @@
           want: '',
           endorse: '',
         },
+
+
+
         rules: {
           file: [
 
@@ -117,79 +140,105 @@
 
       }
     },
-    mounted: function () {
-      this.great();
-    },
 
     methods: {
 
-
-
-      great: function () {
-        document.getElementById('saveImage').onchange = function () {
-          var imgFile = this.files[0];
-          var fr = new FileReader();
-          fr.onload = function () {
-            document.getElementById('portrait').src = fr.result;
-          };
-          fr.readAsDataURL(imgFile);
-        }
+      pic(file){
+        this.file=file
+      },
+      beforeUpload(){
+        this.file=file
       },
 
-      getFile: function (event) {
-        this.file = event.target.files[0];
-
+      handleRemove(file, fileList) {
+        console.log(file, fileList);
+        this.file=file;
       },
+      handlePictureCardPreview(file) {
+
+       this.dialogImageUrl = file.url;
+        this.dialogVisible = true;
+        this.file=file;
+        // console.log(this.file);
+      },
+
       submit: function (event) {
-        //阻止元素发生默认的行为
 
-         var that=this
-        var index=0
-        event.preventDefault();
-        Object.keys(that.userForm).forEach(function(key){
-
-          console.log(key,that.userForm[key]);
-
-          if(that.userForm[key]==''){
-          index+=1
-
-            return ;
-          }
-
-        });
-        if(index!=0){
-          return this.$message({message: '请完善票据票面信息 ',type: 'error',showClose: true});
-        }
-        if(that.file==''){
-          return this.$message({message: '请上传票据图片信息 ',type: 'error',showClose: true});
-        }
         var config={
           headers: { "Content-Type": "multipart/form-data" }
         };
         let formData = new FormData();
-        formData.append("file", this.file);
-        formData.append("billname", this.userForm.billname)
-        formData.append("money", this.userForm.money)
-        formData.append("eename", this.userForm.eename)
-        formData.append("flaw", this.userForm.flaw)
-        formData.append(" want", this.userForm. want)
-        formData.append("endorse", this.userForm.endorse)
-        formData.append("billtime", this.userForm.billtime)
-        // console.log(this.userForm);
-        console.log(formData.get("file"));
-        console.log(formData.get("billname"));
+        formData.append("file", this.file.raw);
 
         this.axios.post('http://localhost:8081/upload', formData,config)
           .then(res=> {
-            this.$router.push({path:'/'})
-            this.$message({message: '票据发布成功 ',type: 'success',showClose: true})
+            // this.$router.push({path:'/'})
+            // this.back=res.data
+            this.userForm=res.data
+            // console.log(this.back)
+            this.$message({message: '票据检索成功 ',type: 'success',showClose: true})
+
+
           })
           .catch(error=> {
             alert("上传失败");
             console.log(error);
             window.location.reload();
           });
-      }
+      },
+      invest: function (event) {
+        //阻止元素发生默认的行为
+
+        // var that=this
+        // var index=0
+        // event.preventDefault();
+        // Object.keys(that.userForm).forEach(function(key){
+        //
+        //   console.log(key,that.userForm[key]);
+        //
+        //   if(that.userForm[key]==''){
+        //   index+=1
+        //
+        //     return ;
+        //   }
+        //
+        // });
+        // if(index!=0){
+        //   return this.$message({message: '请完善票据票面信息 ',type: 'error',showClose: true});
+        // }
+        // if(that.file.raw==''){
+        //   return this.$message({message: '请查看票据图片信息 ',type: 'error',showClose: true});
+        // }
+        // console.log(that.file.row);
+        var config={
+          headers: { "Content-Type": "multipart/form-data" }
+        };
+        let formData = new FormData();
+
+        formData.append("billname", this.userForm.billname)
+        formData.append("money", this.userForm.money)
+        formData.append("eename", this.userForm.eename)
+        formData.append("flaw", this.userForm.flaw)
+        formData.append(" want", this.userForm.want)
+        formData.append("endorse", this.userForm.endorse)
+        formData.append("billtime", this.userForm.billtime)
+        // console.log(this.userForm);
+        console.log(formData.get('billname'))
+        this.axios.post('http://localhost:8081/upbill', formData,config)
+          .then(res=> {
+            this.$router.push({path:'/'})
+            // console.log(this.back)
+            this.$message({message: '票据发布成功 ',type: 'success',showClose: true})
+
+          })
+          .catch(error=> {
+            // alert("上传失败");
+            console.log(error);
+            // window.location.reload();
+          });
+      },
+
+
     },
     }
 

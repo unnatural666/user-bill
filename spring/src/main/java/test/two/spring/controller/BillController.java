@@ -26,7 +26,7 @@ public class BillController {
         JsonUtil jsonUtil=new JsonUtil();
         String m=jsonUtil.json(String.valueOf(apiSelf.custom(filepath)));
         System.out.println(m);
-        return String.valueOf(apiSelf.custom(filepath));
+        return m;
     }
 
     @RequestMapping("/upbill")
