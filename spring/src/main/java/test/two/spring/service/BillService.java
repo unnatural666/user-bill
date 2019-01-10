@@ -59,5 +59,9 @@ public class BillService {
         return billMapper.showAllBill();
     }
 
+    public billInfo showBillInfo(String billname){
+        return billMapper.showBillInfo(billname);
+    }
+
 
 }

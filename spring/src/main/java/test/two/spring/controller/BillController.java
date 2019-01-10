@@ -40,4 +40,9 @@ public class BillController {
     public List<billInfo> show(){
         return billService.showAll();
     }
+
+    @RequestMapping("/contend")
+    public billInfo contend(String billname){
+        return billService.showBillInfo(billname);
+    }
 }

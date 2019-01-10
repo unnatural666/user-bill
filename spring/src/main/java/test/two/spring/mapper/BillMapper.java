@@ -16,4 +16,7 @@ public interface BillMapper {
 
     @Select("select * from billinfo")
     List<billInfo> showAllBill();
+
+    @Select("select * from billinfo where billname=#{billname}")
+    billInfo showBillInfo(@Param("billname") String billname);
 }
