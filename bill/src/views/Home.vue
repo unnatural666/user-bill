@@ -80,16 +80,16 @@
     data() {
       return {
         dataimg: [{
-            src: require('../assets/img/1.jpg'),
+            src: require('../assets/img/3.jpg'),
         },
           {
-            src: require('../assets/img/2.jpg'),
+            src: require('../assets/img/02.png'),
           },
           {
-            src: require('../assets/img/3.jpg'),
+            src: require('../assets/img/4.png'),
           },
           {
-            src: require('../assets/img/5.jpg'),
+            src: require('../assets/img/6.jpg'),
           }
         ],
         tableData3: [{

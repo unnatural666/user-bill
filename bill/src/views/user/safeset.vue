@@ -79,7 +79,7 @@ text-align: center">
 
             //console.log(res);
             this.userinfo=res.data
-            console.log(this.userinfo);
+            // console.log(this.userinfo);
 
           })
           .catch(error => {

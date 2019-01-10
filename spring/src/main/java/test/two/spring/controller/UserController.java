@@ -10,6 +10,8 @@ import test.two.spring.bean.billInfo;
 import test.two.spring.bean.userInfo;
 import test.two.spring.service.UserService;
 
+import java.util.List;
+
 @RestController
 public class UserController {
 
@@ -30,7 +32,7 @@ public class UserController {
     }
 
     @RequestMapping("/showmybill")
-    public billInfo showMyBill(){
+    public List<billInfo> showMyBill(){
         return userService.showMyBill(currentUserController.account);
     }
 }

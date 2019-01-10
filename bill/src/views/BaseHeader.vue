@@ -4,7 +4,7 @@
 			
 			  <el-col :span="4" class="me-header-left">
 			  	 <router-link to="/" class="me-title">
-			  	 	<img src="../assets/img/logo.png"/>
+			  	 	<img src="../assets/img/logg.jpg" style="width: 160px;height: 180px;background-size:100% 100%;  "/>
 			  	</router-link>
 			  </el-col>
 			  
@@ -105,11 +105,12 @@ export default {
 }
 
 .me-header-left{
-		margin-top: 10px;
+		/*margin-top: 10px;*/
 }
 .me-title img{
-	max-height: 2.4rem;
+	/*max-height: 2.4rem;*/
 	max-width: 100%;
+	max-height: 60px;
 }
 .me-header-picture {
 	width: 36px;
@@ -119,4 +120,5 @@ export default {
     vertical-align: middle;
     background-color: #5fb878;
 }
+
 </style>

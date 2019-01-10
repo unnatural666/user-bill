@@ -1,10 +1,7 @@
 package test.two.spring.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import test.two.spring.bean.billInfo;
 import test.two.spring.service.BillService;
@@ -41,8 +38,10 @@ public class BillController {
         return billService.showAll();
     }
 
-    @RequestMapping("/contend")
-    public billInfo contend(String billname){
+    @RequestMapping(value = "/contend",produces = "application/json",consumes = "application/json")
+    public billInfo contend(@RequestBody String billname){
+        System.out.println(billname);
         return billService.showBillInfo(billname);
+        //return null;
     }
 }

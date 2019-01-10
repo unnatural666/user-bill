@@ -132,9 +132,15 @@ export default {
 .me-header-left{
 	margin-top: 10px;
 }
+.me-title{
+  margin-top: 10px;
+  font-size: 24px ;
+}
 .me-title img{
-	max-height: 2.4rem;
-	max-width: 100%;
+  /*max-height: 2.4rem;*/
+  margin-top: -10px;
+  max-width: 100%;
+  max-height: 60px;
 }
 .me-write-toolbar-fixed {
 	position: fixed;

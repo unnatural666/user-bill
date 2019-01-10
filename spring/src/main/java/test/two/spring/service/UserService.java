@@ -45,7 +45,7 @@ public class UserService {
         return userMapper.findUserId(account);
     }
 
-    public billInfo showMyBill(String account){
+    public List<billInfo> showMyBill(String account){
         return billMapper.showMyBill(account);
     }
 }
