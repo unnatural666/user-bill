@@ -11,6 +11,7 @@ import test.two.spring.mapper.BillMapper;
 import test.two.spring.util.FileUtil;
 
 import java.io.IOException;
+import java.util.List;
 
 @Service
 public class BillService {
@@ -50,11 +51,13 @@ public class BillService {
 
     }
 
-    public String show(){
-        return null;
-    }
-
     public int updateBill(billInfo bill) {
         return billMapper.updateBill(currentUserController.account,bill.getEename(),bill.getBillname(),bill.getMoney(),bill.getBilltime(),bill.getFlaw(),bill.getWant(),bill.getEndorse(),billpath);
     }
+
+    public List<billInfo> showAll(){
+        return billMapper.showAllBill();
+    }
+
+
 }

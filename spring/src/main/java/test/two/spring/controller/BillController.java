@@ -11,6 +11,8 @@ import test.two.spring.service.BillService;
 import test.two.spring.util.ApiSelf;
 import test.two.spring.util.JsonUtil;
 
+import java.util.List;
+
 @RestController
 public class BillController {
 
@@ -35,7 +37,7 @@ public class BillController {
     }
 
     @RequestMapping("/show")
-    public String show(){
-        return billService.show();
+    public List<billInfo> show(){
+        return billService.showAll();
     }
 }
