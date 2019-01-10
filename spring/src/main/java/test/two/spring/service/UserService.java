@@ -2,7 +2,9 @@ package test.two.spring.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import test.two.spring.bean.billInfo;
 import test.two.spring.bean.userInfo;
+import test.two.spring.mapper.BillMapper;
 import test.two.spring.mapper.UserMapper;
 
 import java.util.List;
@@ -12,6 +14,8 @@ public class UserService {
 
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private BillMapper billMapper;
 
     public List<userInfo> findAll(){
         List<userInfo> users=userMapper.findAll();
@@ -39,5 +43,9 @@ public class UserService {
 
     public int findId(String account){
         return userMapper.findUserId(account);
+    }
+
+    public billInfo showMyBill(String account){
+        return billMapper.showMyBill(account);
     }
 }
