@@ -2,7 +2,7 @@
 
 <div style="width: 100% ;height: auto;margin-top:80px ">
   <div>
-    <table style=" line-height: 35px;width: 900px; margin-left: -10px">
+    <table style=" line-height: 35px;width: 900px; margin-left: 40px">
       <tr>
         <th style="padding-left: 0px ;font-size: 16px"><i class="el-icon-star-on"></i> 承兑对象</th>
         <td>商票</td>
@@ -92,7 +92,7 @@
       </tr>
     </table>
   </div>
- <div style="height: 800px;width: 100%; ">  <el-table
+ <div style="height: 400px;width: 100%; ">  <el-table
    :data="tableData"
    style="width: 100%">
    <el-table-column
@@ -147,9 +147,15 @@
      <!--handleDelete(scope.$index, scope.row);-->
    </el-table-column>
  </el-table>
-
+   <el-pagination
+   :page-sizes="[100, 200, 300, 400]"
+   :page-size="100"
+   style="margin-left: 600px"
+   layout="total, sizes, prev, pager, next, jumper"
+   :total="400">
+   </el-pagination>
    <div class="repair">
-     <el-dialog title="报价" :visible.sync="dialogFormVisible">
+     <el-dialog title="报价" :visible.sync="dialogFormVisible" >
       <div style="width: 560px;height: 400px;">
 
          <div style="text-align: center"> <img :src="billinfo.path" alt="" style="width: 350px;height: 200px;margin-top: -20px;margin-left: -22px"></div>
@@ -172,15 +178,6 @@
 
  </div>
 
-  <!--分页-->
-  <div style="height: 100px ;position: absolute;margin-top: -450px;margin-left: 450px" class="block ;">
-    <el-pagination
-      :page-sizes="[100, 200, 300, 400]"
-      :page-size="100"
-      layout="total, sizes, prev, pager, next, jumper"
-      :total="400">
-    </el-pagination>
-  </div>
 
 </div>
 
@@ -223,7 +220,6 @@
       //   alert("hello")
       // },
       bill(index, row){
-
           let con=this.tableData
        // let connt=con[index].billname
         this.dialogFormVisible = true

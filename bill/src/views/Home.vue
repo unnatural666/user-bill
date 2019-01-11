@@ -1,29 +1,30 @@
 <template>
 
-<div style="width: 100%;margin-top: 60px">
-  <el-container>
-    <el-main> <el-carousel :interval="5000" arrow="always">
-      <el-carousel-item v-for="item in dataimg" :key="item.value">
-        <div>
-          <img :src="item.src">
-        </div>
-      </el-carousel-item>
-    </el-carousel>
+<div style="width: 100%;margin-top: 60px;margin-bottom: 1px">
 
-      <el-table
+      <div ><el-carousel :interval="5000" arrow="always">
+        <el-carousel-item v-for="item in dataimg" :key="item.value">
+          <div>
+            <img :src="item.src">
+          </div>
+        </el-carousel-item>
+      </el-carousel></div>
+
+      <div style="width: 100%"><el-table
         :data="tableData3"
-        style="width: 100%"
-        height="250">
+        style="width: 100%;text-align: center"
+
+        height="320">
         <el-table-column
           fixed
           prop="date"
           label="成交时间"
-          width="150">
+          width="180">
         </el-table-column>
         <el-table-column
           prop="name"
           label="票据类型"
-          width="120">
+          width="180">
         </el-table-column>
 
         <el-table-column
@@ -34,23 +35,22 @@
         <el-table-column
           prop="state"
           label="票据金额"
-          width="120">
+          width="180">
         </el-table-column>
         <el-table-column
           prop="city"
           label="到期日"
-          width="120">
+          width="180">
         </el-table-column>
 
         <el-table-column
           prop="zip"
           label="状态"
-          width="120">
+          width="180">
         </el-table-column>
-      </el-table>
-    </el-main>
-    <el-footer>
-      <el-pagination
+      </el-table></div>
+
+      <div style="margin-left: 600px"> <el-pagination
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
         :current-page.sync="currentPage4"
@@ -58,9 +58,10 @@
         :page-size="100"
         layout="total, sizes, prev, pager, next, jumper"
         :total="400">
-      </el-pagination>
-    </el-footer>
-  </el-container>
+      </el-pagination></div>
+
+
+
 </div>
 
 </template>

@@ -34,7 +34,7 @@ export default {
 }
 .me-footer{
   text-align: center;
-  line-height: 60px;
+  line-height: 50px;
   font-family: 'Open Sans', sans-serif;
   font-size: 18px;
   

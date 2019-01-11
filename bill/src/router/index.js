@@ -33,15 +33,24 @@ const router = new Router({
         },
 	    	{
 	    	 path: '/lobby',
-	    	 component: r => require.ensure([], () => r(require('@/views/Lobby')), 'lobby')
+	    	 component: r => require.ensure([], () => r(require('@/views/Lobby')), 'lobby'),
+          meta: {
+            requireLogin: true
+          }
 	    	},
         {
           path: '/buy',
-          component: r => require.ensure([], () => r(require('@/views/Buy')), 'buy')
+          component: r => require.ensure([], () => r(require('@/views/Buy')), 'buy'),
+          meta: {
+            requireLogin: true
+          },
         },
         {
           path: '/sale',
-          component: r => require.ensure([], () => r(require('@/views/Sale')), 'sale')
+          component: r => require.ensure([], () => r(require('@/views/Sale')), 'sale'),
+          meta: {
+            requireLogin: true
+          },
         },
         {
           path: '/user',
