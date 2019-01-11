@@ -14,7 +14,7 @@
     <div style="width: 100% ;height: 200px;float: left ;margin:30px 20px ">
       <h3>上传票面</h3>
 
-      <div style="margin-left: 140px">
+      <div style="margin-left: 230px">
         <el-upload
           action="https://jsonplaceholder.typicode.com/posts/"
           list-type="picture-card"
@@ -31,7 +31,8 @@
           <img width="100%" :src="dialogImageUrl" alt="" height="200px"  >
         </el-dialog>
       </div>
-      <el-button type="success" round  @click="submit($event)" style="margin:5px 160px">检索票据</el-button>
+      <el-button type="success" round  @click="submit($event)" style="margin:5px 250px">检索票据</el-button>
+      <span style="color: red;margin-left: -200px;font-size: 14px"> 提示: 自动识别结果可能有误, 请修改正确后再点 "一键融资" </span>
 
     </div>
 
@@ -163,6 +164,10 @@
       },
 
       submit: function (event) {
+        if(this.file==''){
+          this.$message({message: '请上传票据 ',type: 'error',showClose: true})
+          return
+        }
 
         var config={
           headers: { "Content-Type": "multipart/form-data" }

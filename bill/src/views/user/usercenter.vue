@@ -37,12 +37,11 @@
           <el-submenu index="3">
             <template slot="title">
               <i class="el-icon-tickets"></i>
-              <span>业务管理</span>
+              <span>交易须知</span>
             </template>
-            <el-menu-item index="1-1">客户明细</el-menu-item>
-            <el-menu-item index="1-1">业绩榜</el-menu-item>
-            <el-menu-item index="1-1">员工业绩</el-menu-item>
-            <el-menu-item index="1-1">汇总统计</el-menu-item>
+            <router-link to="/rule"><el-menu-item index="1-1">平台规则</el-menu-item></router-link>
+            <router-link to="/help"><el-menu-item index="1-1">帮助中心</el-menu-item></router-link>
+            <router-link to="/about"><el-menu-item index="1-1">关于我们</el-menu-item></router-link>
           </el-submenu>
           <el-submenu index="4">
             <template slot="title">
