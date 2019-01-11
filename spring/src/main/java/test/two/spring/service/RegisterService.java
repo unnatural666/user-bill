@@ -5,9 +5,10 @@ import org.springframework.stereotype.Service;
 import test.two.spring.bean.userInfo;
 import test.two.spring.mapper.RegisterMapper;
 import test.two.spring.result.Code;
+import test.two.spring.util.GetMessage;
 import test.two.spring.util.PasswordHelper;
 
-import java.util.Random;
+import static test.two.spring.util.GetMessage.getResult;
 
 @Service
 public class RegisterService {
@@ -24,16 +25,15 @@ public class RegisterService {
         if(telephone!=null){
             return Code.WRONG_NAME;
         }else {
-            //getResult(tel);
+            getResult(account);
             return Code.SUCCESS;
         }
     }
     public int reg2(userInfo user) {
-        String x="344826";
-        if(user.getAuth().equals(x)){
+        //String x="344826";
+        GetMessage getMessage=new GetMessage();
+        if(user.getAuth().equals(getMessage.randNum)){
             PasswordHelper.encryptPassword(user);
-       // GetMessage getMessage=new GetMessage();
-
             return registerMapper.addUserinfo(user.getAccount(),user.getPassword(),user.getSalt());
         }else
             return -1;
