@@ -129,6 +129,7 @@
    <el-pagination
      @size-change="handleSizeChange"
      @current-change="handleCurrentChange"
+     style="margin-left: 630px"
      :current-page="pageIndex"
      :page-sizes="[2, 3, 4, 5]"
      :page-size="pageSize"
@@ -171,7 +172,7 @@
     name: 'AboutUs',
     data() {
       return {
-        pageSize: 2,
+        pageSize: 3,
         pageIndex: 1,
         search: '',
         dialogTableVisible: false,
@@ -242,7 +243,7 @@
         this.pageIndex = val
       },
         bill(index, row) {
-          let con = this.dormitory
+          let con = this.tableData
           // let connt=con[index].billname
           this.dialogFormVisible = true
           let config = {
