@@ -1,6 +1,6 @@
 <template>
 
-  <div style="width: 800px;height: 300px; border: 1px solid gray"> <h1>我是撒旦哥哥</h1></div>
+  <div > <h1>企业间票据交易平台</h1></div>
 </template>
 
 <script>

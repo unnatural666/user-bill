@@ -14,7 +14,8 @@
 					  <el-menu-item index="/lobby">票据大厅</el-menu-item>
 					  <el-menu-item index="/buy">我是买方</el-menu-item>
 					  <el-menu-item index="/sale">我是卖方</el-menu-item>
-					  <el-menu-item index="/user">我是小腊鸡</el-menu-item>
+
+					  <!--<el-menu-item index="/user">我是小腊鸡</el-menu-item>-->
 
 					  <el-col :span="4" :offset="4">
 					  	<el-menu-item index="/write" ><i class="el-icon-edit"></i>用户中心</el-menu-item>
