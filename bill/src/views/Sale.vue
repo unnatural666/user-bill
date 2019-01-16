@@ -194,26 +194,26 @@
       invest: function (event) {
         //阻止元素发生默认的行为
 
-        // var that=this
-        // var index=0
-        // event.preventDefault();
-        // Object.keys(that.userForm).forEach(function(key){
-        //
-        //   console.log(key,that.userForm[key]);
-        //
-        //   if(that.userForm[key]==''){
-        //   index+=1
-        //
-        //     return ;
-        //   }
-        //
-        // });
-        // if(index!=0){
-        //   return this.$message({message: '请完善票据票面信息 ',type: 'error',showClose: true});
-        // }
-        // if(that.file.raw==''){
-        //   return this.$message({message: '请查看票据图片信息 ',type: 'error',showClose: true});
-        // }
+        var that=this
+        var index=0
+        event.preventDefault();
+        Object.keys(that.userForm).forEach(function(key){
+
+          console.log(key,that.userForm[key]);
+
+          if(that.userForm[key]==''){
+          index+=1
+
+            return ;
+          }
+
+        });
+        if(index!=0){
+          return this.$message({message: '请完善票据票面信息 ',type: 'error',showClose: true});
+        }
+        if(that.file==''){
+          return this.$message({message: '请查看票据图片信息 ',type: 'error',showClose: true});
+        }
         // console.log(that.file.row);
         var config={
           headers: { "Content-Type": "multipart/form-data" }
