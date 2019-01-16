@@ -63,5 +63,7 @@ public class BillService {
         return billMapper.showBillInfo(billname);
     }
 
-
+    /*public List<billInfo> showSomeBill(){
+        return billMapper.showSomeBill();
+    }*/
 }

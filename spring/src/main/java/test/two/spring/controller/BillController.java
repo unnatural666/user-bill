@@ -42,6 +42,10 @@ public class BillController {
     public billInfo contend(@RequestBody String billname){
         System.out.println(billname);
         return billService.showBillInfo(billname);
-        //return null;
     }
+
+   /* @RequestMapping(value = "/showsomebill",produces = "application/json",consumes = "application/json")
+    public List<billInfo> showSomeBill(){
+        return billService.showSomeBill();
+    }*/
 }

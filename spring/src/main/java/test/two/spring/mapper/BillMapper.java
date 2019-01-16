@@ -22,4 +22,7 @@ public interface BillMapper {
 
     @Select("select * from billinfo where account=#{account}")
     List<billInfo> showMyBill(@Param("account") String account);
+
+  /*  @Select("select * from billinfo where ")
+    List<billInfo> showSomeBill();*/
 }
