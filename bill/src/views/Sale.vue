@@ -259,7 +259,7 @@
   #complete{
     position: absolute;
     min-width: 100%;
-    min-height: 100%;
+    /*min-height: 100%;*/
     margin-left: -120px;
   }
   .el-form-item{

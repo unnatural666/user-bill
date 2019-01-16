@@ -1,4 +1,4 @@
-<template>
+ <template>
 <div id="write">
 <el-container>
   	<base-header :simple=true>
