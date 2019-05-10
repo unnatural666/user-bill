@@ -31,7 +31,7 @@
               <i class="el-icon-goods"></i>
               <span>我的钱包</span>
             </template>
-            <el-menu-item index="1-1">总览</el-menu-item>
+            <router-link to="/overview"><el-menu-item index="1-1">总览</el-menu-item></router-link>
             <el-menu-item index="1-1">收支明细</el-menu-item>
           </el-submenu>
           <el-submenu index="3">
