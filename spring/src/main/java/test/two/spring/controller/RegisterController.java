@@ -59,7 +59,7 @@ public class RegisterController {
     public Result addInfo(@RequestBody userInfo user){
         Result r=new Result();
         userService.addInfo(user.getEename(),user.getLgname(),user.getEmail(),user.getAddress(),user.getIdcard(),userController.account);
-        moneyService.addInfo(userController.account);
+        moneyService.addInfo(userController.account,user.getEename());
         r.setResultCode(ResultCode.SUCCESS);
         return r;
     }
