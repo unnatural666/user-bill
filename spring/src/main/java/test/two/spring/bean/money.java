@@ -6,8 +6,8 @@ import lombok.Data;
 public class money {
     private int id;
     String account;
-    String eemane;
-    String money;
+    String eename;
+    int money;
     int time;
     String expend;
 
@@ -26,18 +26,20 @@ public class money {
     public void setAccount(String account) {
         this.account = account;
     }
-    public String getEemane() {
-        return eemane;
+
+    public String getEename() {
+        return eename;
     }
 
-    public void setEemane(String eemane) {
-        this.eemane = eemane;
+    public void setEename(String eename) {
+        this.eename = eename;
     }
-    public String getMoney() {
+
+    public int getMoney() {
         return money;
     }
 
-    public void setMoney(String money) {
+    public void setMoney(int money) {
         this.money = money;
     }
 

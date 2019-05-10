@@ -2,6 +2,7 @@ package test.two.spring.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import test.two.spring.bean.money;
 import test.two.spring.service.MoneyService;
@@ -19,13 +20,12 @@ public class MoneyController {
 
     @PostMapping("/showmoney")
     public money showMoney(){
-        money mymoney=moneyService.showMoneyInfo(currentUserController.account);
-        return mymoney;
+        return moneyService.showMoneyInfo(currentUserController.account);
     }
 
     @PostMapping("/charge")
-    public String charge(String money){
-        return moneyService.ChargeMoney(money);
+    public int charge(@RequestBody money m){
+        return moneyService.ChargeMoney(m.getMoney());
     }
 
 }

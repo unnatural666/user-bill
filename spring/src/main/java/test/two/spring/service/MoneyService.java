@@ -23,11 +23,10 @@ public class MoneyService {
         return myMoney;
     }
 
-    public String ChargeMoney(String money){
-        String mon=moneyMapper.findMymoneyByAccount(currentUserController.account);
-        int myTime=moneyMapper.findTimeByAccount(currentUserController.account);
-        String myMoney=money+mon;
-        int time=myTime+1;
+    public int ChargeMoney(int money){
+        money mon=moneyMapper.findMoneyByAccount(currentUserController.account);
+       int myMoney=money+mon.getMoney();
+        int time=mon.getTime()+1;
         return moneyMapper.charge(myMoney,time,currentUserController.account);
     }
 }

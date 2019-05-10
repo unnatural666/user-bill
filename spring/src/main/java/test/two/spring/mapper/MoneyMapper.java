@@ -12,11 +12,6 @@ public interface MoneyMapper {
     int addMoneyInfo(@Param("account") String account,@Param("eename") String eename);
 
     @Update("update money set money=#{money},time=#{time} where account=#{account}")
-    String charge(@Param("money") String money,@Param("time") int time,@Param("account") String account);
+    int charge(@Param("money") int money,@Param("time") int time,@Param("account") String account);
 
-    @Select("select money from money where account=#{account}")
-    String findMymoneyByAccount(@Param("account") String account);
-
-    @Select("select time from money where account=#{account}")
-    int findTimeByAccount(@Param("account") String account);
 }
