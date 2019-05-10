@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import test.two.spring.bean.userInfo;
 import test.two.spring.result.Result;
 import test.two.spring.result.ResultCode;
+import test.two.spring.service.MoneyService;
 import test.two.spring.service.RegisterService;
 import test.two.spring.service.UserService;
 
@@ -18,6 +19,8 @@ public class RegisterController {
     private UserService userService;
     @Autowired
     private RegisterService registerService;
+    @Autowired
+    private MoneyService moneyService;
     @Autowired
     private LoginController loginController;
     @Autowired
@@ -56,6 +59,7 @@ public class RegisterController {
     public Result addInfo(@RequestBody userInfo user){
         Result r=new Result();
         userService.addInfo(user.getEename(),user.getLgname(),user.getEmail(),user.getAddress(),user.getIdcard(),userController.account);
+        moneyService.addInfo(userController.account);
         r.setResultCode(ResultCode.SUCCESS);
         return r;
     }
