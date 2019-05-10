@@ -78,6 +78,7 @@ const router = new Router({
         {path: '/rule',component: r => require.ensure([], () => r(require('@/views/user/rule')), 'rule'),},
         {path: '/help',component: r => require.ensure([], () => r(require('@/views/user/help')), 'help'),},
         {path: '/about',component: r => require.ensure([], () => r(require('@/views/user/about')), 'about'),},
+        {path: '/overview',component: r => require.ensure([], () => r(require('@/views/user/overview')), 'overview'),},
       ],
 
     	meta: {
